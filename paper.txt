@@ -1,0 +1,63 @@
+~*~*~HW 05/08~*~*~*~
+#1
+figure out what relation we need to add to get all menu items for certain waiter
+Add things to two models --> DONE!
+
+#2 IMPLEMENT HOW AN ORDER UNITES MENU ITEMS AND WAITERS --> DONE!
+A waiter has many orders - has many orders
+A order belongs to a waiter - belongs to waiter
+An order has many menu items - has many menu items
+
+#3 WRITE ROUTES
+
+
+
+
+~*~*~BRAINSTORMING~*~*~
+waiters
+
+chefs
+
+guests
+
+menu_items
+
+
+waiters has many menu items through orders
+menu item has many orders (at any given time)
+menu item has many waiters bc of waiters
+
+
+list of menu items w/ descriptions (column in menu item table)
+
+orders
+  id
+  menu_items_id (foreign key) //originates from id column different table
+  open boolean
+
+
+tickets
+  id
+  table_no
+  shift_id
+  waiter_id
+  open boolean
+
+waiters
+  id
+  name
+
+shifts
+  id
+  date
+  time
+
+menu_items
+  id
+  item_name
+  description
+  price
+
+guests
+  id
+  table_no
