@@ -11,11 +11,13 @@ class WaiterController < ApplicationController
     w = Waiter.find params[:id]
     # binding.pry
     this_waiter_orders = w.orders
+
     {
       success: true,
       message: "Found #{this_waiter_orders.length} orders for #{w.name}",
       orders: this_waiter_orders
     }.to_json
+
   end
 
   #what orders are still open
@@ -29,7 +31,6 @@ class WaiterController < ApplicationController
       items: w.menu_items
     }.to_json
   end
-
 
 
   post '/' do
@@ -49,7 +50,12 @@ class WaiterController < ApplicationController
     @waiter = Waiter.find params[:id]
     @waiter.name = payload[:name]
     @waiter.save
-    @waiter.to_json
+    {
+      success: true,
+      message: "You updated item \##{@waiter.id}",
+      updated_waiter: @waiter
+
+    }.to_json
   end
 
   delete '/:id' do

@@ -5,7 +5,7 @@ class MenuItemController < ApplicationController
       @menuitems.to_json
     end
 
-    ##this should get all orders for a menu item 
+    ##this should get all orders for a menu item
     get '/:id/orders' do
       @menuitems.orders = Order.find params[:id]
     end
@@ -35,7 +35,7 @@ class MenuItemController < ApplicationController
       @menuitem.destroy
       {
         success: true,
-        message: "waiter #{@menuitem.name} deleted"
+        message: "menu item #{@menuitem.name} deleted"
       }.to_json
     end
 
